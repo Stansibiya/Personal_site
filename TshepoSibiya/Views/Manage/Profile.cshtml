@@ -1,0 +1,85 @@
+﻿@model TshepoSibiya.Models.ProfileModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile Manager</title>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper"> 
+        <div class="table-responsive">
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+            <table class="table">
+                <tr>
+                    <th style="border:3px solid #e4e4e4;" colspan="2">
+                        Welcome back Tshepo, Manage your profile here.
+                        <button class="btn btn-danger" id="btnUpdate" style="float:right">Sign-Out</button>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="border:3px solid #e4e4e4;">First Name</td>
+                    <td style="border:3px solid #e4e4e4;">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border:3px solid #e4e4e4;">Last Name</td>
+                    <td style="border:3px solid #e4e4e4;">
+                        @Html.EditorFor(m => m.LastName, new { @class = "form-control", @placeholder = "Last Name" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border:3px solid #e4e4e4;">Email</td>
+                    <td style="border:3px solid #e4e4e4;">
+                        @Html.EditorFor(m => m.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border:3px solid #e4e4e4;">Designation</td>
+                    <td style="border:3px solid #e4e4e4;">
+                        @Html.EditorFor(m => m.Designation, new { @class = "form-control", @placeholder = "Designation" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border:3px solid #e4e4e4;">Experience</td>
+                    <td style="border:3px solid #e4e4e4;">
+                        @Html.EditorFor(m => m.Designation, new { @class = "form-control", @placeholder = "Experience" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border:3px solid #e4e4e4;">Contact</td>
+                    <td style="border:3px solid #e4e4e4;">
+                        @Html.EditorFor(m => m.Contact, new { @class = "form-control", @placeholder = "Contact" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border:3px solid #e4e4e4;">Alt-Contact</td>
+                    <td style="border:3px solid #e4e4e4;">
+                        @Html.EditorFor(m => m.Contact_alt, new { @class = "form-control", @placeholder = "Alternative Contact" })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border: 3px solid #e4e4e4; text-align: center">
+                        <button class="btn btn-success" id="btnUpdate" style="width:100%">Update</button>
+                    </td>
+                </tr>
+            </table>
+}
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#wrapper").css({"background-color":"cyan","width":"70%","margin":"auto","margin-top":"50px"});
+        });
+    </script>
+</body>
+</html>

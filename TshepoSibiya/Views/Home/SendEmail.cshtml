@@ -1,0 +1,51 @@
+﻿@model TshepoSibiya.Models.EmailMessage
+<h2>Get in touch</h2>
+@using (Html.BeginForm("SendEmail", "Home"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <div class="col-md-12">
+                Ready to start your next project with us? That's great! Give me a call or send us an email and we will get back to you as soon as possible!
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Your Name", style = "width:300px;background-color:cyan;" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email", style = "width:300px;background-color:cyan;" })
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @placeholder = "Message here", style = "width:300px;height:100px;background-color:cyan;" })
+                @Html.ValidationMessageFor(model => model.Message)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-0 col-md-10">
+                <input type="submit" value="Send" id="btnSend" class="btn btn-default"/>
+            </div>
+            @*<script type="text/javascript">
+                $(document).ready(function () {
+                    $(this).css('background-image:url("~/img/load1.gif")');
+                    $("#btnSend").click(function () {
+                        
+                    });
+                   // $(this).val('Send');
+                });
+            </script>*@
+        </div>
+
+    </div>
+}
